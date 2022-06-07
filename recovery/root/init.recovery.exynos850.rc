@@ -10,7 +10,7 @@ on init
     disabled
     seclabel u:r:recovery:s0
     
-    service sec-vibrator-2-1 /system/bin/hw/vendor.samsung.hardware.vibrator@2.1-service
+    service sec-vibrator-2-2 /system/bin/hw/vendor.samsung.hardware.vibrator@2.2-service
     user root
     group root
     seclabel u:r:recovery:s0
@@ -22,5 +22,5 @@ on late-init
     setprop sys.usb.config adb
 
 on boot
-    start sec-vibrator-2-1
+    start sec-vibrator-2-2
     start vendor.usb-hal-1-1
