@@ -1,11 +1,26 @@
-# android_device_samsung_a21s-twrp
-Device source tree for Galaxy A21S (TWRP ONLY)
+# TWRP (AOSP 11) for A21s
 
-WORKING: Backup, Restore, Flash Zip, MTP, Screen Brightness, ADB, File Manager, Terminal
+This source is WIP but so far it works good enough for everyday use
 
-NOT Working: Device encryption (When used without decrypting device via FSTAB edit, all the files in /userdata appear broken), Flashing some super.img files (When flashing, the super partition breaks), Magisk flashing (The Zip file installs successfully, but the device goes into bootloop upon reboot. Seems to be a problem with stock rom though.), ADB Sideload and FastbootD is broken, Vibration works but it causes the touch to have a high delay so it has been disabled.
+## Bugs 
+Everything works except for the following:
 
-In order to disable device encryption, after flashing the recovery, open up 'fstab.exynos850' on your device's boot.img, system_root partition(/fstab.exynos850), and vendor partition(/vendor/etc/fstab.exynos850), remove all terms that state 'avb', 'fileencryption=ice', 'errors=panic', and replace/re-flash them onto the device. Please note that disabling encryption will make your device more vulnerable, and you must perform a complete wipe of your device's userdata partition after doing so.
+- ADB Sideload
+- Encryption* (Does decryption even work on any TWRP supported devices these days?)
+- Fastbootd
+- Haptics*
+
+Vibrator (Haptics) works but I have disabled it for the time being  because it causes a nasty touch delay, will enable it back once I solve the issue.
+
+Some GSIs forces encryption which will make TWRP misbehave
+Remove all references to 'avb', 'fileencryption=ice' and 'errors=panic' from fstab.exynos850 in /vendor/etc/ (and /system_root if there is one) and then format /data
+
+## Features
+- DTB: Imported KawaKernel DTB
+- DTBO: Imported A217MUBS9CVD3 stock recovery DTBO
+- Implemented Multidisabler command
+- Recovery Kernel is KawaKernel 1.3.1
+
 
 ## Building
 
@@ -40,3 +55,35 @@ export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_a21s-eng
 ```
 
 Output will be in tw/out/target/product/a21s/recovery.img
+
+## Installation
+### Requirements: Rooted by flashing AP file via Odin that was patched using Magisk App
+
+**Method 1: recovery.img**
+- If you are on linux then flash recovery.img with heimdall
+
+```bash
+heimdall flash --RECOVERY recovery.img
+```
+
+### OR
+- You can the TWRP app to flash the recovery.img
+
+### OR
+- You can use the dd command to flash recovery.img by placing the recovery.img in /sdcard and running these commands
+
+```bash
+su
+```
+
+```bash
+dd if=/sdcard/recovery.img of=/dev/block/by-name/recovery
+```
+
+**Method 2: recovery.tar**
+The tar file consists of the recovery.img and patched vbmeta.img(s) from the A217MUBS9CVD3 firmware
+
+- Simply flash via Odin
+
+### Alternative
+- You can extract the tar file to get the blank vbmeta.img(s) and flash them on your device similar to Method 1
