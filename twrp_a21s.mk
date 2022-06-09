@@ -40,10 +40,6 @@ PRODUCT_RELEASE_NAME := samsung a21s
 # A21s uses dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# VINTF
-PRODUCT_ENFORCE_VINTF_MANIFEST := true
-PRODUCT_FULL_TREBLE := true
-
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
