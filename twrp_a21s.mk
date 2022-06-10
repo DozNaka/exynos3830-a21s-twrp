@@ -19,9 +19,6 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-# $(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/embedded.mk)
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from a21s device
 $(call inherit-product, device/samsung/a21s/device.mk)
@@ -40,7 +37,10 @@ PRODUCT_RELEASE_NAME := samsung a21s
 # A21s uses dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# fastbootd
+# VINTF
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
+
+# FastbootD
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd

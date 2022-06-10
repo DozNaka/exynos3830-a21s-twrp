@@ -31,5 +31,5 @@ odm		    ext4		/odm				                        wait,logical,first_stage_mount
 /vbmeta_samsung	    emmc		/dev/block/bootdevice/by-name/vbmeta_samsung
 
 # External storage paritions
-/external_sd	    auto		/dev/block/mmcblk1p1	/dev/block/mmcblk1	        flags=storage;wipeingui;removable
-/usb-otg	    auto		/dev/block/sda1	        /dev/block/sda			flags=display="USB-OTG";storage;wipeingui;removable
+/external_sd	    vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1	        flags=display="Micro SDCard";storage;wipeingui;removable
+/usb-otg	    vfat		/dev/block/sda1	        /dev/block/sda			flags=display="USB-OTG";storage;wipeingui;removable
