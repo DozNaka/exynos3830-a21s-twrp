@@ -1,6 +1,0 @@
-#!/system/bin/sh
-#
-# Simple script to switch to permissive mode
-
-setenforce 0
-echo 'Permissive mode enabled'

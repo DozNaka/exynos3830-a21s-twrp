@@ -1,3 +1,6 @@
+on early-init
+    write /sys/fs/selinux/enforce 0
+
 on init
     write /proc/sys/kernel/hung_task_timeout_secs 0
     
@@ -9,11 +12,6 @@ on init
     onrestart setprop hwservicemanager.ready false
     disabled
     seclabel u:r:recovery:s0
-
-    service permissiver /system/bin/twrp_permissive
-    user root
-    group root
-    seclabel u:r:recovery:s0
     
 on late-init
     setprop ro.debuggable 1
@@ -23,7 +21,6 @@ on late-init
 
 on boot
     start vendor.usb-hal-1-1
-    start permissiver
 
 on fs
     wait /dev/block/platform/12100000.dwmmc0
