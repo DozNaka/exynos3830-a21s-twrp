@@ -1,0 +1,31 @@
+env:
+    # Config
+    CONFIG: config.sh
+
+    # Telegram
+    TG_CHAT_ID: -1001191341989
+    TG_TOKEN: ENCRYPTED[c8a7eb621fd5184a3b84bc75e43af487a143f50f4dfe26002c9e4614e9efbbae9cadfad7c61fb18bc4404fb2bb3e40ab]
+
+    # Cirrus Specific Vars (Do *NOT* Change)
+    CIRRUS_SHELL: bash
+
+task:
+  name: "TWRP CI"
+  timeout_in: 120m
+  container:
+      image: ghcr.io/sushrut1101/docker:latest
+      cpu: 8
+      memory: 20G
+      
+  Checks_script:
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/checks.sh | bash
+
+  Sync_script:
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/sync.sh | bash
+
+  Build_script:
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/build.sh | bash
+
+  Upload_script:
+      - export TIMEOUT=43200 # Link timeout (in minutes)
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/upload.sh | bash
