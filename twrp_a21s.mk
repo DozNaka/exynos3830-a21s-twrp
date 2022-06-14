@@ -23,8 +23,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 # Inherit from a21s device
 $(call inherit-product, device/samsung/a21s/device.mk)
 
-# Inherit some common Omni stuff.
+# Inherit some common TWRP stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
+
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a21s

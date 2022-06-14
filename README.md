@@ -7,7 +7,7 @@ Everything works except for the following:
 
 - ADB Sideload
 - Encryption* (Does decryption even work on any TWRP supported devices these days?)
-- Fastbootd
+- FastbootD
 - Haptics*
 
 Vibrator (Haptics) works but I have disabled it for the time being  because it causes a nasty touch delay, will enable it back once I solve the issue.
