@@ -1,10 +1,4 @@
 # mount point	    fstype              device        device2			               flags
-# Logical partitions
-system		    ext4		/system				                        wait,logical,first_stage_mount
-vendor		    ext4		/vendor				                        wait,logical,first_stage_mount
-product		    ext4		/product				                wait,logical,first_stage_mount
-odm		    ext4		/odm				                        wait,logical,first_stage_mount
-
 # Symlinked partitions
 /system_image	    emmc		/dev/block/mapper/system		                flags=backup=0;flashimg;display="System Image"
 /vendor_image	    emmc		/dev/block/mapper/vendor		                flags=backup=0;flashimg;display="Vendor Image"

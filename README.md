@@ -6,20 +6,19 @@ This source is WIP but so far it works good enough for everyday use
 Everything works except for the following:
 
 - ADB Sideload
-- Encryption* (Does decryption even work on any TWRP supported devices these days?)
+- Decryption*
 - FastbootD
 - Haptics*
 
 Vibrator (Haptics) works but I have disabled it for the time being  because it causes a nasty touch delay, will enable it back once I solve the issue.
 
-Some GSIs forces encryption which will make TWRP misbehave
-Remove all references to 'avb', 'fileencryption=ice' and 'errors=panic' from fstab.exynos850 in /vendor/etc/ (and /system_root if there is one) and then format /data
+Decryption does not work on this device and if your device is encrypted then TWRP will be unable to view your files. To Decrypt your device, enter the terminal in TWRP and run the `multidisabler` command 
 
 ## Features
 - DTB: Imported KawaKernel DTB
 - DTBO: Imported A217MUBS9CVD3 stock recovery DTBO
 - Implemented Multidisabler command
-- Recovery Kernel is KawaKernel 1.3.1
+- Recovery Kernel: [KawaKernel 1.3.1](https://github.com/DozNaka/KawaKernel-A217X)
 
 
 ## Building
@@ -59,6 +58,19 @@ Output will be in tw/out/target/product/a21s/recovery.img
 ## Installation
 ### Requirements: Rooted by flashing AP file via Odin that was patched using Magisk App
 
+**To root your device with the patch AP method you do the following:**
+- Install [Bitfrost](https://github.com/zacharee/SamloaderKotlin/releases/latest)
+- Download stock firmware using bitfrost app
+- Extract AP from firmware
+- Install [Magisk](https://github.com/topjohnwu/Magisk/releases/latest)
+- Open Magisk, press Install and then **Select and Patch a File**
+- Select the AP file you have extracted from stock firmware
+- Once finished patching, you will find the patched AP file in Downloads
+- Move the patched AP file to your computer
+- Flash the patched AP file with Odin
+
+Once you have done this you can proceed with the methods below
+
 **Method 1: recovery.img**
 - If you are on linux then flash recovery.img with heimdall
 
@@ -81,9 +93,4 @@ dd if=/sdcard/recovery.img of=/dev/block/by-name/recovery
 ```
 
 **Method 2: recovery.tar**
-The tar file consists of the recovery.img and patched vbmeta.img(s) from the A217MUBS9CVD3 firmware
-
-- Simply flash via Odin
-
-### Alternative
-- You can extract the tar file to get the blank vbmeta.img(s) and flash them on your device similar to Method 1
+- Place the tar file in AP on Odin then flash

@@ -42,11 +42,3 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # VINTF
 PRODUCT_ENFORCE_VINTF_MANIFEST := true
-
-# FastbootD
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
-
-# Vibration
-LOCAL_REQUIRED_MODULES := android.hardware.vibrator@1.3
