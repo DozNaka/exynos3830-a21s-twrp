@@ -115,6 +115,8 @@
 /dev/video191             0660   cameraserver   camera
 /dev/video192             0660   cameraserver   camera
 /dev/video193             0660   cameraserver   camera
+/dev/video194             0660   cameraserver   camera
+/dev/video195             0660   cameraserver   camera
 /dev/video210             0660   cameraserver   camera
 /dev/video211             0660   cameraserver   camera
 /dev/video212             0660   cameraserver   camera
@@ -166,11 +168,22 @@
 /dev/seiren               0660   system     audio
 
 # Mobicore
-/dev/mobicore             0600   drmrpc     drmrpc
-/dev/mobicore-user        0666   drm        drmrpc
+#/dev/mobicore             0600   drmrpc     drmrpc
+#/dev/mobicore-user        0666   drm        drmrpc
+
+# TEEGRIS
+/dev/tzdev                0666   system     system
+/dev/tziwsock             0666   system     system
+/dev/ionfd2phys           0660   system     system
+/dev/tzirs                0660   system     system
+/dev/tuihw                0660   system     system
 
 # Secure MEM driver
 /dev/s5p-smem             0660   system     system
+
+# cbd
+/dev/block/by-name/modem  0440   radio      radio
+/dev/umts_ramdump0        0660   radio      radio
 
 # Diag and AT
 /dev/umts_dm0             0660   system     system
@@ -182,7 +195,7 @@
 # Modem Interface
 /dev/block/by-name/radio    0660   system     radio
 /dev/block/by-name/cp_debug 0660   radio      system
-/sys/devices/platform/cpif	sim/ds_detect	0660	radio	system
+/sys/devices/platform/10000.mif_pdata	sim/ds_detect	0660	radio	system
 /dev/umts*                  0660   system     radio
 /dev/ipc*                   0660   system     radio
 /dev/umts_csd               0660   system     loop_radio
@@ -192,17 +205,6 @@
 
 # dev ril bridge
 /dev/drb                0660   system     radio
-
-/dev/block/platform/12100000.dwmmc0/by-name/frp 0660   root     system
-
-# Google FRP solution
-/dev/block/platform/12100000.dwmmc0/by-name/persistent    0660    system    system
-
-# Reactivation lock
-/dev/block/platform/12100000.dwmmc0/by-name/steady    0660    system    system
-
-# Reactivation lock
-/dev/block/platform/12100000.dwmmc0/by-name/param    0660    root    system
 
 # interactive governor parameters
 /sys/devices/system/cpu/cpu*	cpufreq/interactive/timer_rate			0660	system	system
@@ -235,17 +237,31 @@
 /dev/mx140_usb_clk_test_0 0660   wifi     wifi
 /dev/scsc_log_collector_0 0660   wifi     wifi
 
-# TEEGRIS
-/dev/tzdev                0666   system     system
-/dev/tziwsock             0666   system     system
-/dev/ionfd2phys           0660   system     system
-/dev/tzirs                0660   system     system
-/dev/tuihw                0660   system     system
+# Google FRP solution
+/dev/block/by-name/persistent    0660    system    system
+
+# Reactivation lock
+/dev/block/by-name/steady    0660    system    system
+
+/dev/block/by-name/param    0660    root    system
+
+# grip sensor
+/dev/input/event*				0660	system	input
+/sys/devices/virtual/input/input*   enable      0660	system	input
+/sys/devices/virtual/input/input*   poll_delay  0660	system	input
 
 # Sensor Hub
 /dev/ssp_sensorhub        0660   system     system
 /dev/ssp_data_injection   0660   system     system
+/dev/shub_sensorhub        0660   system     system
+/dev/shub_data_injection   0660   system     system
 /dev/iio:device*          0660   system		system
 /sys/devices/platform/11a00000.contexthub/iio:device*    buffer/enable       0660    system    system
 /sys/devices/platform/11a00000.contexthub/iio:device*    buffer/length       0660    system    system
 /sys/bus/iio/devices/iio:device*    0664   system     radio
+
+# Google FRP solution
+/dev/block/platform/12100000.dwmmc0/by-name/persistent    0660    system    system
+
+# Reactivation lock
+/dev/block/platform/12100000.dwmmc0/by-name/steady    0660    system    system

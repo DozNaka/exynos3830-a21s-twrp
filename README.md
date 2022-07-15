@@ -1,4 +1,4 @@
-# TWRP (AOSP 11) for A21s
+# TWRP (AOSP 12.1) for A21s
 
 This source is WIP but so far it works good enough for everyday use
 
@@ -15,10 +15,10 @@ Vibrator (Haptics) works but I have disabled it for the time being  because it c
 Decryption does not work on this device and if your device is encrypted then TWRP will be unable to view your files. To Decrypt your device, enter the terminal in TWRP and run the `multidisabler` command 
 
 ## Features
-- DTB: Imported KawaKernel DTB
-- DTBO: Imported A217MUBS9CVD3 stock recovery DTBO
+- DTB: Imported Stock DTB from A217MUBU9DVF6
+- DTBO: Imported A217MUBU9DVF6 stock recovery DTBO
 - Implemented Multidisabler command
-- Recovery Kernel: [KawaKernel 1.3.1](https://github.com/DozNaka/KawaKernel-A217X)
+- Recovery Kernel: Stock kernel from A217MUBU9DVF6
 
 
 ## Building
@@ -35,10 +35,10 @@ Clone A21s device tree to device/samsung/a21s
 git clone https://github.com/DozNaka/exynos3830-a21s-twrp.git device/samsung/a21s
 ```
 
-Init TWRP AOSP 11 manifest repo
+Init TWRP AOSP 12.1 manifest repo
 
 ```bash
-repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 ```
 
 Sync repo and wait
@@ -59,7 +59,7 @@ Output will be in tw/out/target/product/a21s/recovery.img
 ### Requirements: Rooted by flashing AP file via Odin that was patched using Magisk App
 
 **To root your device with the patch AP method you do the following:**
-- Install [Bitfrost](https://github.com/zacharee/SamloaderKotlin/releases/latest)
+- Install [Bitfrost](https://github.com/zacharee/SamloaderKotlin/releases/latest) apk
 - Download stock firmware using bitfrost app
 - Extract AP from firmware
 - Install [Magisk](https://github.com/topjohnwu/Magisk/releases/latest)

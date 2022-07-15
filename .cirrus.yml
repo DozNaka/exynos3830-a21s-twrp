@@ -18,14 +18,14 @@ task:
       memory: 20G
       
   Checks_script:
-      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/checks.sh | bash
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-12.1/scripts/checks.sh | bash
 
   Sync_script:
-      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/sync.sh | bash
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-12.1/scripts/sync.sh | bash
 
   Build_script:
-      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/build.sh | bash
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-12.1/scripts/build.sh | bash
 
   Upload_script:
       - export TIMEOUT=43200 # Link timeout (in minutes)
-      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-11/scripts/upload.sh | bash
+      - curl -sL https://raw.githubusercontent.com/DozNaka/exynos3830-a21s-twrp/android-12.1/scripts/upload.sh | bash
