@@ -58,6 +58,8 @@ BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_ODM := odm
 
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
+
 # A21s uses dynamic partitions
 BOARD_SUPER_PARTITION_SIZE := 5536481280
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions

@@ -15,10 +15,10 @@ Vibrator (Haptics) works but I have disabled it for the time being  because it c
 Decryption does not work on this device and if your device is encrypted then TWRP will be unable to view your files. To Decrypt your device, enter the terminal in TWRP and run the `multidisabler` command 
 
 ## Features
-- DTB: Imported Stock DTB from A217MUBU9DVF6
+- DTB: Imported KawaKernel A12 DTB
 - DTBO: Imported A217MUBU9DVF6 stock recovery DTBO
 - Implemented Multidisabler command
-- Recovery Kernel: Stock kernel from A217MUBU9DVF6
+- Recovery Kernel: Slim KawaKernel A12
 
 
 ## Building
