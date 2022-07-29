@@ -1,6 +1,6 @@
 # mount point	    fstype              device        device2			               flags
 # Symlinked partitions
-/system_image	    emmc		/dev/block/mapper/system		                flags=backup=0;flashimg;display="System Image"
+/system_image	    emmc		/dev/block/mapper/system		                flags=backup=0;flashimg;display="System Image";wipeingui
 /vendor_image	    emmc		/dev/block/mapper/vendor		                flags=backup=0;flashimg;display="Vendor Image"
 /product_image	    emmc		/dev/block/mapper/product		                flags=backup=0;flashimg;display="Product Image"
 /odm_image	    emmc                /dev/block/mapper/odm		                        flags=backup=0;flashimg;display="Odm Image"
