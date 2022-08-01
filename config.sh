@@ -2,8 +2,8 @@
 
 # Device
 export TWRP_MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp"
-export TWRP_BRANCH="twrp-12.1"
-export DT_LINK="https://github.com/DozNaka/exynos3830-a21s-twrp.git -b android-12.1"
+export TWRP_BRANCH="twrp-11"
+export DT_LINK="https://github.com/DozNaka/exynos3830-a21s-twrp.git -b android-11"
 
 export DEVICE="a21s"
 export OEM="samsung"
