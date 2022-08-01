@@ -1,6 +1,6 @@
 # mount point	    fstype              device        device2			               flags
 # Symlinked partitions
-/system_image	    emmc		/dev/block/mapper/system		                flags=backup=0;flashimg;display="System Image";wipeingui
+/system_image	    emmc		/dev/block/mapper/system		                flags=backup=0;flashimg;display="System Image"
 /vendor_image	    emmc		/dev/block/mapper/vendor		                flags=backup=0;flashimg;display="Vendor Image"
 /product_image	    emmc		/dev/block/mapper/product		                flags=backup=0;flashimg;display="Product Image"
 /odm_image	    emmc                /dev/block/mapper/odm		                        flags=backup=0;flashimg;display="Odm Image"
@@ -21,9 +21,7 @@
 /optics_image	    emmc		/dev/block/bootdevice/by-name/optics		        flags=backup=1;flashimg;display="Optics Image"
 /prism		    ext4		/dev/block/bootdevice/by-name/prism		        flags=backup=1;display="Prism"
 /prism_image	    emmc		/dev/block/bootdevice/by-name/prism		        flags=backup=1;flashimg;display="Prism Image"
-/vbmeta	            emmc		/dev/block/bootdevice/by-name/vbmeta
-/vbmeta_samsung	    emmc		/dev/block/bootdevice/by-name/vbmeta_samsung
 
 # External storage paritions
 /external_sd	    vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1	        flags=display="Micro SDCard";storage;wipeingui;removable
-/usb-otg	    vfat		/dev/block/sda1	        /dev/block/sda			flags=display="USB-OTG";storage;wipeingui;removable
+/usb-otg	    auto		/dev/block/sda1	        /dev/block/sda			flags=display="USB-OTG";storage;wipeingui;removable

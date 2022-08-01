@@ -52,5 +52,3 @@ odm					    /odm		    ext4	ro,barrier=1	        wait,logical
 /dev/block/by-name/dtbo			    /dtbo		    emmc	defaults
 /dev/block/by-name/prism		    /prism		    ext4	defaults
 /dev/block/by-name/optics		    /optics		    ext4	defaults
-/dev/block/by-name/vbmeta	            /vbmeta	            emmc	defaults
-/dev/block/by-name/vbmeta_samsung	    /vbmeta_samsung	    emmc	defaults
